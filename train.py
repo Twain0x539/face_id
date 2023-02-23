@@ -1,7 +1,7 @@
 from torch import optim
 from torch.nn import functional as F
 
-from model import ArcfaceNN, ArcfaceLoss
+from model import ArcfaceNN, arcface_loss
 
 device = "cpu"
 if torch.cuda.is_available():
@@ -11,7 +11,7 @@ EPOCHS = 50
 n_classes = dataset.targets[-1] + 1
 arcface_model = ArcfaceNN(n_classes).to(device)
 lr = 0.0001
-criterion = ArcfaceLoss
+criterion = arcface_loss
 optimizer = optim.Adam(arcface_model.parameters(), lr=lr)
 arcface_model.train()
 

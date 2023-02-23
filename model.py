@@ -37,7 +37,7 @@ class Backbone(nn.Module):
 
 
 
-def ArcfaceLoss(y_pred, y_true, acos_eps=1e-6):
+def arcface_loss(y_pred, y_true, acos_eps=1e-6):
     s = 32.0
     m = 0.2
     denominators = torch.sum(torch.exp(s * y_pred), dim=1)
